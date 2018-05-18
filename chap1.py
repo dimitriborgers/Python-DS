@@ -23,3 +23,5 @@ def recFind(inputL):
                     tempCurrentI.append(j)
                     possL.append(tempCurrentI)
     return possL
+
+a = [''.join(b) for b in recFind(['a','c','t'])]
