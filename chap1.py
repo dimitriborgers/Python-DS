@@ -35,3 +35,39 @@
 #             number /= 2
 #             count += 1
 #     return count
+
+# P31
+# def makechange(charge, given):
+#     difference = given - charge
+#     hund = difference // 100
+#     difference -= hund * 100
+#     twenties = difference // 20
+#     difference -= twenties * 20
+#     return ('hundred bills {0} twenty bills {1}'.format(hund, twenties))
+
+# P35
+# from random import *
+
+# def birthparadox(list1):
+#     list2 = []
+#     list3 = []
+#     for i in list1:
+#         for j in range(i):
+#             list2.append(randrange(365))
+#         if len(set(list2)) != len(list2):
+#             list3.append('paradox')
+#     return len(list3)/len(list1)
+
+# print(birthparadox([5,10,15,20,15,30, 35, 40]))
+
+#P36
+# def counter():
+#     dic = {}
+#     for i in range(10):
+#         inputted = input('input word ')
+#         if inputted not in dic:
+#             dic[inputted] = 1
+#         else:
+#             dic[inputted] += 1
+#     return dic
+# print(counter())
