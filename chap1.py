@@ -45,6 +45,82 @@
 #     difference -= twenties * 20
 #     return ('hundred bills {0} twenty bills {1}'.format(hund, twenties))
 
+# P32
+# def calculator():
+#     allL = list()
+#     temL = list()
+#     finished = False
+#     while finished == False:
+#         inputted = input('enter number, operator, or finish ')
+#         if inputted == 'finish':
+#             finished = True
+#         else:
+#             allL.append(inputted)
+#             print(allL)
+#     for i in range(len(allL)):
+#         if allL[i] == '*':
+#             times = int(allL[i-1])*int(allL[i+1])
+#             temL.pop()
+#             temL.append(times)
+#         elif allL[i-1] == '*':
+#             continue
+#         elif allL[i] == '/':
+#             divide = int(allL[i-1])/int(allL[i+1])
+#             temL.pop()
+#             temL.append(divide)
+#         elif allL[i-1] == '/':
+#             continue
+#         else:
+#             temL.append(allL[i])
+#     allL = temL
+#     temL = list()
+#     for i in range(len(allL)):
+#         if allL[i] == '+':
+#             times = int(allL[i-1])+int(allL[i+1])
+#             temL.pop()
+#             temL.append(times)
+#         elif allL[i-1] == '+':
+#             continue
+#         elif allL[i] == '-':
+#             divide = int(allL[i-1]) - int(allL[i+1])
+#             temL.pop()
+#             temL.append(divide)
+#         elif allL[i-1] == '-':
+#             continue
+#         else:
+#             temL.append(allL[i])
+#     return allL
+
+# P33
+# def calc(previous=None):
+#     finished = False
+#     list1 = []
+#     if previous != None:
+#         list1.append(previous)
+#     while len(list1) < 3 and finished == False:
+#         inputted = input('#, op, finish or clear ')
+#         if inputted == 'clear':
+#             calc()
+#         elif inputted == 'finish':
+#             finished = True
+#         else:
+#             list1.append(inputted)
+#     if finished == False and isinstance(int(list1[0]), int) and isinstance(int(list1[2]), int) and list1[1] == '*':
+#         temp = int(list1[0])*int(list1[2])
+#         print(temp)
+#         calc(temp)
+
+# P34
+# from random import *
+
+# list2 = ['$','#','FLor','??']
+
+# for i in range(100):
+#     list1 = list('I will never spam my friends again')
+#     randError = randrange(len(list1))
+#     list1[randError] = choice(list2)
+#     print(i+1,''.join(list1))
+
 # P35
 # from random import *
 
