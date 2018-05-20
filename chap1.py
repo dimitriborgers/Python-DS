@@ -133,7 +133,6 @@
 #         if len(set(list2)) != len(list2):
 #             list3.append('paradox')
 #     return len(list3)/len(list1)
-
 # print(birthparadox([5,10,15,20,15,30, 35, 40]))
 
 #P36
@@ -146,4 +145,3 @@
 #         else:
 #             dic[inputted] += 1
 #     return dic
-# print(counter())
