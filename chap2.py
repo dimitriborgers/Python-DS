@@ -1,11 +1,11 @@
 # R1
-# None coding
+# Non-coding
 
 # R2
-# None coding
+# Non-coding
 
 # R3
-# None coding
+# Non-coding
 
 # R4
 # class Flower:
@@ -44,5 +44,21 @@
 #     except TypeError:
 #         print('Must be number')
 
-R6
+# R6
+# def make_payment(self, amount):
+#     try:
+#         if amount < 0:
+#             raise ValueError('Must be positive')
+#         self._balance -= amount
+#     except TypeError
+#         print('Must be number')
+
+# R7
+# def __init__(self, customer, bank, acnt, limit, balance=0)
+
+# R8
+# Non-coding
+
+# R9
+
 
