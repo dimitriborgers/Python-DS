@@ -60,5 +60,38 @@
 # Non-coding
 
 # R9
+# def __sub__(self, other):
+#     if len(self) != len(other):
+#         raise ValueError('Dimensions must agree')
+#     result = Vector(len(self))
+#     for j in range(len(self)):
+#         resut[j] = self[j] - other[j]
+#     return result
 
+# R10
+# def __neg__(self):
+#     result = Vector(len(self))
+#     for j in range(len(self)):
+#         result[j] = -self[j]
+#     return result
+
+# R11
+# Relies on __len__ member function, which only works with vectors.
+# def __len__(self):
+#     if isinstance(self, list):
+#         return len(self)
+#     else:
+#         return len(self._coords)
+
+# R12
+# def __mul__(self, number):
+#     if not isinstance(number, int):
+#         raise TypeError("must be a number")
+#     else:
+#         result = Vector(len(self))
+#         for j in range(len(self)):
+#             result[j] = self[j] * number
+#     return result
+
+# R13
 
