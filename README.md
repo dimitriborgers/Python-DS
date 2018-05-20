@@ -1,5 +1,5 @@
 # Python-Data Structures & Aglorithms
-Micheal Goodrich, Roberto Tamassia, Michael Goldwasser
+Micheal Goodrich, Roberto Tamassia, Michael Goldwasser\
 Solutions (Chapter 1-15)
 
 -----
