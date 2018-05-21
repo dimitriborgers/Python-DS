@@ -179,11 +179,19 @@ def __eq__(self, other):
                 return False
 
 # R23
-
+def __lt__(self, other):
+    if len(self) < len(other):
+        return True
+    elif: len(self) > len(other):
+        return False
+    else:
+        for x,y in zip(self, other):
+            if x > y:
+                return False
 
 # C24
 Non-coding
-"""Write an example inheritance for e-book instead"""
+"""Write an example for e-book instead"""
 
 
 # C25
