@@ -152,7 +152,13 @@ class Goat(Mammal):
         return self.age
 
 # R18
-
+a = FibonacciProgression()
+list1 = []
+while len(list1) != 8:
+    temp = a._advnace()
+    temp1 = list(temp)
+    if temp1[0]==2 and temp[1]==2:
+        list1.append(temp1)
 
 # R19
 Non-coding
@@ -164,5 +170,21 @@ Non-coding
 Non-coding
 
 # R22
+def __eq__(self, other):
+    if len(self) != len(other):
+        raise ValueError('not compatible')
+    else:
+        for x,y in zip(self, other):
+            if x != y:
+                return False
 
+# R23
+
+
+# C24
+Non-coding
+"""Write an example inheritance for e-book instead"""
+
+
+# C25
 
