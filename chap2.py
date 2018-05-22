@@ -300,7 +300,59 @@ class sqrtProgression(Progression):
         self._current, self._prev = self._prev, self._current
 
 # P33
+import re
 
+def poly(input, param):
+    try:
+        order = [i for i in list(input) if i == '+' or i == '-']
+        input = re.split('\-|\+', input)
+        for h in range(len(input)):
+            if param not in input[h]:
+                order[h-1] = None
+        order = [i for i in order if i != None]
+        input = [i for i in input if param in i]
+        result = list()
+        counter = 0
+
+        for i in input:
+            temp = list(i)
+            temp2 = list()
+            if int(temp[0]) in [i for i in range(10)]:
+                temp2.append(temp[0])
+            else:
+                temp2.append('0')
+            for j in range(1,len(temp)):
+                if temp[j] == '^':
+                    if temp[j-1] == param:
+                        temp2[0] = str(int(temp2[0]) * int(temp[j+1]))
+                        temp[j+1] = str(int(temp[j+1]) - 1)
+                        temp2.append(temp[j])
+                    else:
+                        temp2.append(temp[j])
+                elif temp[j] == param:
+                    if len(i) <= j + 1:
+                        continue
+                    elif temp[j+1] != '^':
+                         continue
+                    else:
+                        temp2.append(temp[j])
+                else:
+                    temp2.append(temp[j])
+            for k in range(len(temp2)):
+                if temp2[k] == '1':
+                    del(temp2[k])
+                    del(temp2[k-1])
+                    break
+            result.append(''.join(temp2))
+            if len(order) > counter:
+                result.append(order[counter])
+            counter += 1
+        result = ''.join(result)
+        return result
+    except:
+        print('something went wrong')
+
+print(poly('4x^8-3x^4y+3x^2y^2+5','x'))
 
 # P34
 
