@@ -192,7 +192,122 @@ def __lt__(self, other):
 # C24
 Non-coding
 """Write an example for e-book instead"""
+class Reader():
+    def __init__(self, page):
+        self.page = page
 
+    def increment(self):
+        self.page += 1
+    def decrement(self):
+        self.page -= 1
+    def getPage(self):
+        return self.page
 
 # C25
+def __mul__(self, other):
+    if isinstance(other, int):
+        result = Vector(len(self))
+        for i in range(len(self)):
+            result[i] = self[i]*other
+    else:
+        result = 0
+        for x,y in zip(self, other):
+            result += x*y
+
+# C26
+class ReversedSequenceIterator:
+    def __init__(self, sequence):
+        self.seq = sequence
+        self.k = 0
+
+    def __next__():
+        self.k -= 1
+        if abs(self.k) < len(self.seq) + 1:
+            return self.seq[self.k]
+        else:
+            raise StopIteration()
+
+# C27
+def __contains__(self, k):
+    if k < self.start or self.stop > k:
+        return False
+    else:
+        if k % self.step == 0:
+            return True
+        else:
+            return False
+
+# C28
+def __init__(self, customer, bank, acct, limit, apr, sur):
+    super().__init__(customer, bank, acct, limit)
+    self.apr = apr
+    self.sur = sur
+
+def charge(self, price):
+    self.sur += 1
+    success = super().charge(price)
+    if not success:
+        self.balance += 5
+    if self.sur > 10:
+        self. balance += 1
+    return success
+
+def process_monthly(self):
+    self.sur = 0
+
+# C29
+def PredatoryCreditCard(CreditCard):
+    def __init__(self, customer, bank, acct, limit, apr):
+        super()__init__(customer, bank, acct, limit)
+        self.apr = apr
+        self.min = min
+
+    def charge(self, price):
+        success = super().charge(price)
+        return success
+    def process_monthly(self):
+        if self._balance > 0:
+            self.min = balance * 0.05
+            self.balance += self.min
+
+# C30
+"""in CreditCard"""
+def _set_balance(self,b):
+    self._balance = b
+
+"""in PredatoryCreditCard"""
+    #do nothing
+
+# C31
+class Absolute(Progression):
+    def __init__(self, start1 = 2, start2 = 200):
+        self.start1 = start1
+        self.start2 = start2
+
+    def advance(self):
+        self.start1 = abs(self.start2 - self.start1)
+        self.start1, self.start2 = self.start2, self.start1
+
+# C32
+
+
+# P33
+
+
+# P34
+
+
+# P35
+
+
+# P36
+
+
+# P37
+
+
+# P38
+
+
+# P39
 
