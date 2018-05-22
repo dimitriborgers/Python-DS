@@ -289,7 +289,15 @@ class Absolute(Progression):
         self.start1, self.start2 = self.start2, self.start1
 
 # C32
+class sqrtProgression(Progression):
 
+    def __init__(self, prev, start = 65536):
+        super().__init__(start)
+        self._prev = prev
+
+    def _advance(self):
+        self._prev = sqrt(self._current)
+        self._current, self._prev = self._prev, self._current
 
 # P33
 
