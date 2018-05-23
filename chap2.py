@@ -355,10 +355,72 @@ def poly(input, param):
 print(poly('4x^8-3x^4y+3x^2y^2+5','x'))
 
 # P34
+def readFile(fileInput):
+    alphabet = {}
 
+    with open(fileInput, 'r') as f:
+        data = f.read()
+
+        data = list(data)
+        data = [i.lower() for i in data if ord(i) in range(ord('a'),ord('z')) or ord(i) in range(ord('A'), ord('Z'))]
+        total = len(data)
+        print(total)
+        for i in data:
+            if i not in alphabet:
+                alphabet[i] = 1 / total
+            else:
+                alphabet[i] += 1 / total
+    return alphabet
 
 # P35
+import threading
 
+class Package:
+    def __init__(self, name, size):
+        self.name = name
+        self.size = size
+
+class User:
+    def __init__(self, created = {}, recieved = []):
+        self.cr = created
+        self.re = recieved
+        self.c = 0
+
+    def createPack(self, name, size = 0):
+        self.cr[str(name)] = Package(name, size)
+        self.c += 1
+
+    def sendPackage(self, person, package):
+        sending = self.cr[package]
+        person.re.append(sending)
+        del(self.cr[package])
+
+    def seeCreated(self):
+        counter = 0
+        for key,value in self.cr.items():
+            print(counter, key)
+            counter += 1
+
+    def readPack(self):
+        for i in self.re:
+            print(i.size)
+        self.re = list()
+
+def looping(time, Alice, Bob):
+    threading.Timer(time,looping,[time, Alice, Bob]).start()
+    Alice.createPack('pack1',10)
+    Alice.createPack('pack2',15)
+    Alice.seeCreated()
+    Alice.sendPackage(Bob, 'pack1')
+    Alice.sendPackage(Bob, 'pack2')
+    Bob.readPack()
+
+def main():
+    Alice = User()
+    Bob = User()
+    looping(3.0, Alice, Bob)
+
+main()
 
 # P36
 
