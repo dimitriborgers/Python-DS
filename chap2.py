@@ -423,7 +423,99 @@ def main():
 main()
 
 # P36
+import random
 
+def create_list(size = 5):
+    ecosystem = [random.choice([Animal('Bear'), Animal('Fish')]) for i in range(size)]
+    for i in ecosystem:
+        if i == None:
+            print(i)
+        else:
+            print(i.type)
+    print('----------')
+    play(ecosystem)
+
+def play(eco, counter = 0):
+    if counter < 20:
+        for i in range(len(eco)):
+            print(eco[i])
+            print('--------')
+            if eco[i] != None:
+                choice = eco[i].choose()
+                print(choice)
+                print(eco[i].type)
+                print('---------')
+                if choice =='left' and i == 0:
+                    continue
+                elif choice =='right' and i == len(eco) - 1:
+                    continue
+                elif choice =='stay':
+                    continue
+                else:
+                    if choice =='left':
+                        if eco[i-1] == None:
+                            eco[i-1] = Animal(eco[i].type)
+                        elif eco[i-1].type == eco[i].type:
+                            temp = list()
+                            if None in eco:
+                                print(eco.index(None))
+                                for j in range(len(eco)):
+                                    if eco[j] == None:
+                                        temp.append(j)
+                                choice = random.choice(temp)
+                                eco[choice] = Animal(eco[i].type)
+                            else:
+                                continue
+                        elif eco[i-1].type == 'Bear' and eco[i].type == 'Fish':
+                            eco[i] = None
+                        elif eco[i-1].type == 'Fish' and eco[i].type == 'Bear':
+                            eco[i-1] = None
+                        else:
+                            continue
+                    elif choice =='right':
+                        if eco[i+1] == None:
+                            eco[i+1] = Animal(eco[i].type)
+                        elif eco[i+1].type == eco[i].type:
+                            print("get here")
+                            temp = list()
+                            if None in eco:
+                                for j in range(len(eco)):
+                                    if eco[j] == None:
+                                        temp.append(j)
+                                print(temp)
+                                choice = random.choice(temp)
+                                print(choice)
+                                print(eco[choice])
+                                eco[choice] = Animal(eco[i].type)
+                                print("get here three")
+                            else:
+                                continue
+                        elif eco[i+1].type == 'Bear' and eco[i].type == 'Fish':
+                            eco[i] = None
+                        elif eco[i+1].type == 'Fish' and eco[i].type == 'Bear':
+                            eco[i+1] = None
+                        else:
+                            continue
+                    else:
+                        continue
+            else:
+                continue
+            for i in eco:
+                if i == None:
+                    print(i)
+                else:
+                    print(i.type)
+    else:
+        return eco
+
+class Animal:
+    def __init__(self, type):
+        self.type = type
+
+    def choose(self):
+        return random.choice(['left','right','stay'])
+
+create_list()
 
 # P37
 
