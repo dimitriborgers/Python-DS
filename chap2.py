@@ -518,10 +518,40 @@ class Animal:
 create_list()
 
 # P37
-
+"""Same as 36"""
 
 # P38
+class EBook:
+    def __init__(self, user, available = []):
+        self.user = user
+        self.available = available
 
+    def buy(self, title):
+        self.available.append(title)
+
+    def view(self):
+        print(self.available)
 
 # P39
+from abc import abstractmethod
 
+class Polygon:
+    @abstractmethod
+    def area():
+        pass
+
+    @abstractmethod
+    def perimiter():
+        pass
+
+class Triangle(Polygon):
+    def __init__(self, side1, side2, side3):
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+
+    def perimeter(self):
+        return self.side1 + self.side2 + self.side3
+
+    def area(self):
+        return 0.5(self.side1 + self.side2)
