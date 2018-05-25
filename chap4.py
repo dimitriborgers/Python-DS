@@ -41,55 +41,146 @@ Non-coding
 Non-coding
 """implement Harmonic Number instead"""
 def har(S, total=0, counter=1):
-    print("This is the total, ", total)
     if len(S) > 0:
         total += (1/counter)
         counter += 1
         temp = har(S[1:], total, counter)
-        print(temp)
         return temp
     return total
 
 # R7
 Non-coding
-"""implement conversionALg instead"""
-
 
 # R8
 Non-coding
 
 # C9
+def find(Seq):
+    first = Seq[0]
+    rest = Seq[1:]
+    max_ = first
+    min_ = first
 
+    if len(rest) == 0:
+        return first, first
+    else:
+        temp1,temp2 = find(rest)
+        if temp1 > max_:
+            max_ = temp1
+        if temp2 < min_:
+            min_ = temp2
+    return max_, min_
 
 # C10
-
+Non-coding
 
 # C11
+def duplicates(S):
+    first = S[0]
+    rest = S[1:]
 
+    if len(rest) == 0:
+        return False
+    else:
+        temp = duplicates(rest)
+        if temp == True:
+            return True
+        for i in rest:
+            if i == first:
+                return True
+    return temp
 
 # C12
-
+def product(m,n):
+    if m == 1:
+        return n
+    else:
+        return n + product(m-1,n)
 
 # C13
-
+Non-coding
 
 # C14
-
+def hanoi(n, source, helper, target):
+    print(source, helper, target)
+    if n > 0:
+        hanoi(n - 1, source, target, helper)
+        if source:
+            target.append(source.pop())
+        hanoi(n - 1, helper, source, target)
 
 # C15
+def subsets(input_):
+    outcome = [set(input_), set()]
+    def pSubs(input_, total=[]):
+        for i in range(len(input_)):
+            first = [input_[i]]
+            remainder = input_[:i] + input_[i + 1:]
 
+            if len(remainder) == 1:
+                if set(remainder) not in total:
+                    total.append(set(remainder))
+            else:
+                pSubs(remainder, total)
+                if set(remainder) not in total:
+                    total.append(set(remainder))
+        return total
+    propers = pSubs(input_)
+    for i in propers:
+        outcome.append(i)
+    return outcome
 
 # C16
+def reversering(input_):
+    input_ = list(input_)
 
+    def do(input_, first, last):
+        if first < last:
+            input_[first], input_[last] = input_[last], input_[first]
+            do(input_, first+1, last-1)
+        return input_
+
+    outcome = do(input_, 0, len(input_)-1)
+    return outcome
 
 # C17
+def palindrome(input1):
+    list_input = list(input1)
 
+    def reverser(input2, first, last):
+        if first < last:
+            input2[first], input2[last] = input2[last], input2[first]
+            reverser(input2, first + 1, last - 1)
+        return input2
+
+    outcome = reverser(list_input, 0, len(list_input) - 1)
+    if input1 == ''.join(outcome):
+        return True
+    return False
 
 # C18
+def vowel(input1, current = 0, vowels = 0, consonants = 0):
+    input1 = list(input1)
 
+    if current < len(input1):
+        if input1[current] in ['a','e','i','u','o']:
+            vowels += 1
+        else:
+            consonants += 1
+        vowels, consonants = vowel(''.join(input1), current+1, vowels, consonants)
+    return vowels, consonants
 
 # C19
-
+def rearrange(input1, first, last):
+    if first != last:
+        if input1[first] % 2 == 0:
+            rearrange(input1, first+1, last)
+        elif input1[last] % 2 == 1:
+            rearrange(input1, first, last - 1)
+        else:
+            input1[first], input1[last] = input1[last], input1[first]
+            rearrange(input1, first+1, last)
+    return input1
 
 # C20
 
@@ -98,7 +189,7 @@ Non-coding
 
 
 # C22
-
+Non-Coding
 
 # P23
 
