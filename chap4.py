@@ -183,10 +183,33 @@ def rearrange(input1, first, last):
     return input1
 
 # C20
-
+def rearrange(input1, start, last, k):
+    if start != last:
+        if input1[start] < k:
+            rearrange(input1, start+1, last, k)
+        elif input1[last] > k:
+            rearrange(input1, start, last-1, k)
+        else:
+            input1[start], input1[last] = input1[last], input1[start]
+            rearrange(input1, start+1, last, k)
+    return input1
+"""Running time: O(n)"""
 
 # C21
-
+def summing(input1, first, last, k,temp = (None,None)):
+    if first < last:
+        if input1[first]*input1[last] == k:
+            temp = (input1[first],input1[last])
+            print(temp)
+            return temp
+        else:
+            temp = summing(input1, first, last-1, k)
+            return temp
+    elif first > last:
+        return temp
+    else:
+        temp = summing(input1, first+1, len(input1)-1, k)
+        return temp
 
 # C22
 Non-Coding
@@ -201,7 +224,13 @@ Non-Coding
 
 
 # P26
-
+def hanoi(n, source, helper, target):
+    print(source, helper, target)
+    if n > 0:
+        hanoi(n - 1, source, target, helper)
+        if source:
+            target.append(source.pop())
+        hanoi(n - 1, helper, source, target)
 
 # P27
 
