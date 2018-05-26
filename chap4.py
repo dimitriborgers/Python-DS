@@ -228,7 +228,23 @@ def find(path, filename, total = []):
     return total
 
 # P24
-
+def summation(S, U, temp = None):
+    for i in U:
+        if temp != None:
+            return temp
+        if len(S) == 7:
+            dic = dict(zip(list(set('potpanbib')),S))
+            if ((dic['p'] + dic['p'])*100) + ((dic['o']+dic['a'])*10)+(dic['t']+ dic['n']) == (dic['b']*100) + (dic['i']*10) + dic['b']:
+                return dic
+            else:
+               return None
+        else:
+            U.remove(i)
+            S.append(i)
+            temp = summation(S, U)
+            U.append(S.pop())
+            U.sort()
+    return temp
 
 # P25
 
