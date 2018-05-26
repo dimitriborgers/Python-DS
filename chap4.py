@@ -200,7 +200,6 @@ def summing(input1, first, last, k,temp = (None,None)):
     if first < last:
         if input1[first]*input1[last] == k:
             temp = (input1[first],input1[last])
-            print(temp)
             return temp
         else:
             temp = summing(input1, first, last-1, k)
@@ -215,7 +214,18 @@ def summing(input1, first, last, k,temp = (None,None)):
 Non-Coding
 
 # P23
+import os
 
+def find(path, filename, total = []):
+    if os.path.isdir(path):
+        for file in os.listdir(path):
+            childpath = os.path.join(path, file)
+            if file == filename:
+                total.append(childpath)
+            find(childpath, filename, total)
+    else:
+        return total
+    return total
 
 # P24
 
