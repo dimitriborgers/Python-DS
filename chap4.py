@@ -247,7 +247,36 @@ def summation(S, U, temp = None):
     return temp
 
 # P25
+def ruler(inches, tick_length):
+    for i in range(inches):
+        print('-'*tick_length, i)
+        counter, total, left = 1,0, tick_length - 1
 
+        while left != 0:
+            total += counter
+            left -= 1
+            counter *= 2
+        list1 = [None]*total
+        left = tick_length - 1
+
+        half = int((total+1)/2)
+        targets = [half]
+        outcome = []
+        difference = 0
+        for i in range(left):
+            for j in targets:
+                if j == targets[0]:
+                    difference = int(j/2)
+                temp = left-i
+                list1[(j-1)] = ('-'*temp)
+                a,b = j - difference, j+difference
+                outcome.append(a)
+                outcome.append(b)
+            targets = outcome
+            outcome = []
+        for i in list1:
+            print(i)
+    print('-'*tick_length, inches)
 
 # P26
 def hanoi(n, source, helper, target):
@@ -259,4 +288,20 @@ def hanoi(n, source, helper, target):
         hanoi(n - 1, helper, source, target)
 
 # P27
+import os
 
+def walk(path, directories=[], files=[], start='/Users/dimitriborgers/Documents/Additional Courses',correct=False):
+    if os.path.isdir(start):
+        for filename in os.listdir(start):
+            childpath = os.path.join(start, filename)
+            if correct == True:
+                if os.path.isdir(childpath):
+                    directories.append(filename)
+                else:
+                    files.append(filename)
+            else:
+                if path == filename:
+                    walk(path, start=childpath, correct=True)
+                else:
+                    walk(path,start=childpath)
+    return directories, files
