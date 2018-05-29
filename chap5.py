@@ -59,43 +59,136 @@ def insert(self, k, value):
     self._n += 1
 
 # R7
+def printRepeating(arr, size):
 
+    for i in range(size):
+        if arr[abs(arr[i])] >= 0:
+            arr[abs(arr[i])] *= -1
+        else:
+            print (abs(arr[i]), end = " ")
 
 # R8
-
+from time import time
+def compute_average(n):
+    data = [i for i in range(n)]
+    start = time()
+    data.pop(0)
+    end = time()
+    return (end-start)/n
 
 # R9
-
+Non-Coding
 
 # R10
-
+self._forward = ''.join([chr((k+shift)%26 + ord('A')) for k in range(26)])
 
 # R11
-
+def compute(n,total=0):
+    try:
+        for i in n:
+            total += sum(i)
+    except (IndexError, TypeError):
+        print('something went wrong')
+    return total
 
 # R12
-
+def compute(n,total=0):
+    try:
+        total = sum([sum(i) for i in n])
+    except (IndexError, TypeError):
+        print('something went wrong')
+    return total
 
 # C13
-
+Non-Coding
 
 # C14
+import random
 
+def ownS(list1, list2=[]):
+    while len(list2) != len(list1):
+        i = random.randrange(max(list1))
+        if i not in list2:
+            list2.append(i)
+    return list2
 
 # C15
-
+Non-Coding
 
 # C16
-
+def __pop__(self):
+    value = self._A[self._n-1]
+    self._A[self._n-1] = None
+    self._n -= 1
+    if self._n < self._capacity/4:
+        B = self._make_array(self._capacity/2)
+        for k in range(self._n):
+            B[k] = self._A[k]
+        self._A = B
+        self._capacity /= 2
+    return value
 
 # C17
-
+Non-Coding
 
 # C18
-
+Non-Coding
 
 # C19
-
+Non-Coding
 
 # C20
+Non-Coding
+
+# C21
+
+
+# C22
+
+
+# C23
+
+
+# C24
+
+
+# C25
+
+
+# C26
+
+
+# C27
+
+
+# C28
+Non-Coding
+
+# C29
+
+
+# C30
+
+
+# C31
+
+
+# P32
+
+
+# P33
+
+
+# P34
+
+
+# P35
+
+
+# P36
+
+
+# P37
+
+
 
