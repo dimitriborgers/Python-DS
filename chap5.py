@@ -285,13 +285,45 @@ def mergesort(S):
         return outcome
 
 # C31
-
+def sum2D(S, outcome = 0):
+    for i in S:
+        if isinstance(i, list):
+            tempSum = sum2D(i)
+            outcome += tempSum
+        else:
+            outcome+=i
+    return outcome
 
 # P32
-
+def sum3D(S, outcome=0):
+    for i in S:
+        for j in i:
+            outcome += sum(j)
+    return outcome
+"""OR"""
+def sum3D(S, outcome=0):
+    dic = dict(zip([i for i in range(len(S))],[0]*len(S)))
+    for i in S:
+        for j in i:
+            temp = len(j)
+            counter = 0
+            while counter < temp:
+                dic[counter] += j[counter]
+                counter += 1
+    return dic
 
 # P33
-
+def _add(selfie, other):
+    if len(selfie) == len(other):
+        for x,y in zip(selfie, other):
+            if len(x) == len(y):
+                for i in range(len(x)):
+                    x[i] += y[i]
+            else:
+                raise IndexError('not same')
+        return selfie
+    else:
+        raise IndexError('not same')
 
 # P34
 
