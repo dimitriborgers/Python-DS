@@ -313,15 +313,15 @@ def sum3D(S, outcome=0):
     return dic
 
 # P33
-def _add(selfie, other):
-    if len(selfie) == len(other):
-        for x,y in zip(selfie, other):
+def __add__(self, other):
+    if len(self) == len(other):
+        for x,y in zip(self, other):
             if len(x) == len(y):
                 for i in range(len(x)):
                     x[i] += y[i]
             else:
                 raise IndexError('not same')
-        return selfie
+        return self
     else:
         raise IndexError('not same')
 
