@@ -1,29 +1,45 @@
 # R1
-
+3,8,2,1,6,7,4,9
 
 # R2
-
+18
 
 # R3
-
+def transfer(S,T):
+    for i in range(len(S)):
+        temp = S.pop()
+        T.append(temp)
+    return S,T
 
 # R4
-
+def rec(S):
+    if len(S) == 1:
+        S.pop()
+    else:
+        S.pop()
+        rec(S)
+    return S
 
 # R5
-
+def reverser(Seq, Sta = []):
+    for i in range(len(Seq)):
+        Sta.append(Seq.pop(0))
+    for i in range(len(Sta)):
+        Seq.append(Sta.pop())
+    return Seq
 
 # R6
-
+Non-coding
+"""implement code instead"""
 
 # R7
-
+5,3,2,8,9,1,7,6
 
 # R8
-
+22
 
 # R9
-
+Non-Coding
 
 # R10
 
