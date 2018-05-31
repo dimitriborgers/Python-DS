@@ -29,8 +29,25 @@ def reverser(Seq, Sta = []):
     return Seq
 
 # R6
-Non-coding
 """implement code instead"""
+def match(Seq, Stack=[]):
+    left = "{[("
+    right = "}])"
+    for i in Seq:
+        if i in left:
+            Stack.append(i)
+        elif i in right:
+            temp = right.index(i)
+            top = left.index(Stack.pop())
+            if temp == top:
+                continue
+            else:
+                print('error')
+                break
+        else:
+            continue
+    if Stack:
+        print("error again")
 
 # R7
 5,3,2,8,9,1,7,6
@@ -42,10 +59,11 @@ Non-coding
 Non-Coding
 
 # R10
-
+Non-Coding
 
 # R11
-
+from collections import deque
+queue = deque([1,2,3])
 
 # R12
 
