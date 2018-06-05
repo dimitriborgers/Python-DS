@@ -319,7 +319,31 @@ class LeakyStack:
         return self._size
 
 # P36
+from collections import deque
 
+def stocks(number):
+    Q,P = deque([]),deque([])
+    for i in range(number):
+        input1, input2, input3 = input("Action,Quantity,Price: ").split(',')
+        input2,input3 = int(input2), int(input3)
+        if input1 == "buy":
+            Q.append(input2)
+            P.append(input3)
+        else:
+            profit,i = 0,0
+            while input2 != 0:
+                tempQ,tempP = Q[i],P[i]
+                diff = input2 - tempQ
+                if diff < 0:
+                    diff = input2
+                    Q[i] -= diff
+                    profit += (diff*(input3-tempP))
+                    input2 -= diff
+                else:
+                    input2 -= Q.popleft()
+                    P.popleft()
+                    profit += (tempQ*(input3-tempP))
+            return profit
 
 # P37
 
