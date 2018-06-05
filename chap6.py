@@ -254,16 +254,69 @@ Non-Coding
 Non-Coding
 
 # P32
+class Deque:
+    def __init__(self, maxlen=None):
+        self._seq = []
+        self._size = 0
+        self._maxlen = maxlen
 
+    def add_first(self,e):
+        if self._maxlen == None:
+            temp = self._seq
+            self._seq = []
+            self._seq.append(e)
+            self._seq.extend(temp)
+            self._size += 1
+        else:
+            if self._size == self._maxlen:
+                temp = self._seq
+                self._seq = []
+                self._seq.append(e)
+                self._seq.extend(temp[:self._size-1])
+            else:
+                temp = self._seq
+                self._seq = []
+                self._seq.append(e)
+                self._seq.extend(temp)
+                self._size += 1
 
 # P33
-
+Same 32
 
 # P34
 Same 22
 
 # P35
+class LeakyStack:
+    def __init__(self, maxlen):
+        self._seq = [None]*maxlen
+        self._maxlen = maxlen
+        self._front = 0
+        self._size = 0
 
+    def push(self,e):
+        if self._size != self._maxlen:
+            avail = self._front % self._maxlen
+            self._seq[avail] = e
+            self._size += 1
+            self._front += 1
+        else:
+            avail = self._front % self._maxlen
+            self._seq[avail] = e
+            self._front += 1
+
+    def pop(self):
+        self._front -=1
+        a = self._seq[self._front % self._maxlen]
+        self._seq[self._front % self._maxlen] = None
+        self._size -=1
+        return a
+
+    def top(self):
+        return self._seq[(self._front-1) % self._maxlen]
+
+    def __len__(self):
+        return self._size
 
 # P36
 
