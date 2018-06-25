@@ -28,19 +28,39 @@ def countNodes(LLhead, total = 1):
         return countNodes(LLhead.next, total)
 
 # R4
+Non-Coding
+"""implement instead"""
 
 
 # R5
-
+def countNodes(CircularLL):
+    current, current2 = CircularLL.head,CircularLL.head
+    total = 1
+    while current2.next != current:
+        total += 1
+        current2 = current2.next
+    return total
 
 # R6
-
+Non-Coding
 
 # R7
-
+def rotate(LinkedQ):
+    LinkedQ._tail._next = LinkedQ._head
+    LinkedQ._head = LinkedQ._head._next
+    LinkedQ._tail = LinkedQ._tail._next
+    LInkedQ._tail._next = None
 
 # R8
-
+def middle(DLL):
+    begin = DLL.header
+    end = DLL.trailer
+    while begin != end:
+        if begin.next == end:
+            return begin
+        begin = begin.next
+        end = end.next
+    return begin
 
 # R9
 
