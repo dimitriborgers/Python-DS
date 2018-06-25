@@ -63,10 +63,19 @@ def middle(DLL):
     return begin
 
 # R9
-
+def mergeDLL(L,M):
+    SLL = SinglyLinkedList()
+    current = L.header.next
+    while current != L.trailer:
+        SLL.append(current)
+        current = current.next
+    while current != M.trailer:
+        SLL.append(current)
+        current = current.next
+    return SLL
 
 # R10
-
+Non-Coding
 
 # R11
 
