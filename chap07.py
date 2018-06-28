@@ -28,8 +28,6 @@ def countNodes(LLhead):
 
 # R4
 Non-Coding
-"""implement instead"""
-
 
 # R5
 def countNodes(CircularLL):
@@ -77,12 +75,20 @@ def mergeDLL(L,M):
 Non-Coding
 
 # R11
-
+def findMax(self):
+    current = self._header._next
+    currentMax = self._header_.next
+    while current:
+        current = current._next
+        if currentMax < current:
+            currentMax = current
+    return currentMax
 
 # R12
-
+def __max__(self):
 
 # R13
+def find(self,e):
 
 
 # R14
