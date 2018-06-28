@@ -20,12 +20,11 @@ def mergeLL(a,b,c = SinglyLinkedList()):
 # R3
 Non-Coding
 """implement instead"""
-def countNodes(LLhead, total = 1):
-    if LLhead.next == None:
-        return total
+def countNodes(LLhead):
+    if not LLhead.next:
+        return 1
     else:
-        total += 1
-        return countNodes(LLhead.next, total)
+        return 1 + countNodes(LLhead.next)
 
 # R4
 Non-Coding
