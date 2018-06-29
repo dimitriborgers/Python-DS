@@ -92,9 +92,11 @@ def find(self,e):
 
 
 # R14
+def findRec(self,e):
 
 
 # R15
+def __reersed__(self):
 
 
 # R16
