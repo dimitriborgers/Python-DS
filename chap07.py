@@ -117,15 +117,21 @@ def find(self,e):
     return None
 
 # R14
-def findRec(self,e):
-
+def findRec(self,e,start):
+        if start.element() == e:
+            return start
+        else:
+            return self.findRec(e,self.after(start))
 
 # R15
-def __reersed__(self):
-
+def __reversed__(self):
+    cursor = self.last()
+    while cursor is not None:
+        yield cursor.element()
+        cursor = self.before(cursor)
 
 # R16
-
+Non-Coding
 
 # R17
 
