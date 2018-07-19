@@ -134,25 +134,29 @@ def __reversed__(self):
 Non-Coding
 
 # R17
-
+Non-Coding
 
 # R18
-
+Non-Coding
 
 # R19
 Non-Coding
 
 # R20
-
+Non-Coding
 
 # R21
-
+Non-Coding
 
 # R22
-
-
+def clear(self):
+    self = PositionalList()
 # R23
-
+def reset_counts(self):
+    cursor = self.first()
+    while cursor:
+        cursor.element()._count=0
+        cursor = self.after(cursor)
 
 # C24
 class LinkedStack:
