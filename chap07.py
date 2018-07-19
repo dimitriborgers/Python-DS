@@ -299,15 +299,59 @@ def revRec(self,curr):
 # C29
 Non-Coding
 """implement instead"""
+def reverse(self):
+    current = self._head
+    cnext = current._next
+
+    while current and cnext:
+        new_c = cnext
+        new_n = cnext._next
+
+        cnext._next = current
+
+        current = new_c
+        cnext = new_n
+
+    self._head._next = None
+    self._head,self._tail = self._tail,self._head
 
 # C30
+class LeakyStack(SinglyLinkedQueue):
 
+    def __init__(self,maxlen=10):
+        super().__init__()
+        self._maxlen = maxlen
+
+    def enqueue(self,e):
+        if self._size < self._maxlen:
+            super().enqueue(e)
+        else:
+            self.dequeue()
+            super().enqueue(e)
 
 # C31
-
+"""Same as C32"""
 
 # C32
+class PositionalCircular(CircularyLinkedQueue):
 
+    class Position:
+        def __init__(self,container,node):
+            self._container = container
+            self._node = node
+
+        def __eq__(self,other):
+            return self._container == other._container and self._node == other._node
+
+    def enqueue(self,e):
+        node = super().enqueue(e)
+        return self.Position(self,node)
+
+    def first(self):
+        return self.Position(self,self._head)
+
+    def after(self,p):
+        return self.Position(self,p._node._next)
 
 # C33
 def reverse(self):
