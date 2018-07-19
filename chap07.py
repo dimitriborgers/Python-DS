@@ -255,16 +255,50 @@ class LinkedQueue:
         return result
 
 # C26
-
+def concatenate(self,other):
+    self._tail._next = other._head
+    other._head = other._tail = None
 
 # C27
+class LinkedListRecursive:
 
+    class _Node:
+        __slots__ = '_element','_next'
+
+        def __init__(self,_element,_next):
+            self._element = _element
+            self._next = _next
+
+    def __init__(self):
+        self._head = None
+        self._size = 0
+
+    def append(self,e):
+        if self._head == None:
+            self._head = self._Node(e,LinkedListRecursive())
+            self._size += 1
+        else:
+            self._head._next.append(e)
+            self._size += 1
 
 # C28
-
+Non-Coding
+"""implement instead"""
+def revRec(self,curr):
+    if curr._next._next == None:
+        self._head = curr._next
+        curr._next._next = curr
+        return self
+    else:
+        self.revRec(curr._next)
+        curr._next._next = curr
+        curr._next = None
+        self._tail = curr
+    return self
 
 # C29
-
+Non-Coding
+"""implement instead"""
 
 # C30
 
@@ -276,7 +310,15 @@ class LinkedQueue:
 
 
 # C33
-
+def reverse(self):
+    current = self._header._next
+    while current != self._trailer:
+        next_ = current._next
+        current._next,current._previous = current._previous,current._next
+        current = next_
+    self._trailer._next,self._trailer._previous = self._trailer._previous,self._trailer._next
+    self._header._next,self._header._previous = self._header._previous,self._header._next
+    self._header,self._trailer = self._trailer,self._header
 
 # C34
 
@@ -285,7 +327,93 @@ class LinkedQueue:
 
 
 # C36
+class PositionalList(_DoublyLinkedList):
 
+    class Position:
+
+        def __init__(self, container, node):
+            self._container = container
+            self._node = node
+
+        def element(self):
+            return self._node._element
+
+        def __eq__(self, other):
+            return type(other) is type(self) and other._node is self._node
+
+        def __ne__(self, other):
+            return not(self == other)
+
+    def _validate(self, p):
+        if not isinstance(p, self.Position):
+            raise TypeError('p must be proper Position type')
+        if p._container is not self:
+            raise ValueError('p does not belong to this container')
+        if p._node._next is None:
+            raise ValueError('p is no longer valid')
+        return p._node
+
+    def _make_position(self,node):
+        if node is self._header or node is self._trailer:
+            return None
+        else:
+            return self.Position(self,node)
+
+    def first(self):
+        return self._make_position(self._header._next)
+
+    def last(self):
+        return self._make_position(self._trailer._previous)
+
+    def before(self,p):
+        node = self._validate(p)
+        return self._make_position(node._previous)
+
+    def after(self,p):
+        node = self._validate(p)
+        return self._make_position(node._next)
+
+    def __iter__(self):
+        cursor = self.first()
+        while cursor is not None:
+            yield cursor.element()
+            cursor = self.after(cursor)
+
+    def __repr__(self):
+        outcome = []
+        current = self._header._next
+        while current != self._trailer:
+            outcome.append(current._element)
+            current = current._next
+        return '{}'.format(outcome)
+
+    def _insert_between(self,e,predecessor,successor):
+        node = super()._insert_between(e,predecessor,successor)
+        return self._make_position(node)
+
+    def add_first(self,e):
+        return self._insert_between(e,self._header,self._header._next)
+
+    def add_last(self,e):
+        return self._insert_between(e,self._trailer._previous,self._trailer)
+
+    def add_before(self,p,e):
+        original = self._validate(p)
+        return self._insert_between(e, original._previous, original)
+
+    def add_after(self,p,e):
+        original = self._validate(p)
+        return self._insert_between(e,original, original._next)
+
+    def delete(self,p):
+        original = self._validate(p)
+        return self._delete_node(original)
+
+    def replace(self,p,e):
+        original - self._validate(p)
+        old_value = original._element
+        original._element = e
+        return old_value
 
 # C37
 
@@ -297,10 +425,10 @@ class LinkedQueue:
 
 
 # C40
-
+Non-Coding
 
 # C41
-
+Non-Coding
 
 # C42
 
