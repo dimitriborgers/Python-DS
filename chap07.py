@@ -482,7 +482,16 @@ class PositionalList(_DoublyLinkedList):
         return old_value
 
 # C37
-
+def summing(self,value):
+    a = self.first()
+    b = self.after(a)
+    while b:
+        if a.element() + b.element() == value:
+            return a,b
+        else:
+            a = b
+            b = self.after(b)
+    return
 
 # C38
 
