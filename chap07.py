@@ -365,10 +365,32 @@ def reverse(self):
     self._header,self._trailer = self._trailer,self._header
 
 # C34
-
+def swap(self,p,q):
+    p = self._validate(p)
+    q = self._validate(q)
+    p._next = q._next
+    p._previous._next = q
+    q._next._previous = p
+    q._next = p
+    q._previous = p._previous
+    p._previous = q
 
 # C35
+class Iterator:
 
+    def __init__(self,sequence):
+        self._first = sequence._header
+        self._last = sequence._trailer._previous
+
+    def __next__(self):
+        if self._first is self._last:
+            raise StopIteration()
+        else:
+            self._first = self._first._next
+            return self._first._element
+
+def __iter__(self):
+    return self.Iterator(self)
 
 # C36
 class PositionalList(_DoublyLinkedList):
